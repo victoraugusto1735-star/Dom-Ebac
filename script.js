@@ -12,13 +12,12 @@ document.getElementById('cep').addEventListener('blur', (evento) => {
         .then(response => response.json())
         .then(dados => {
 
-            // 3.2 processamento de pagina
             if (!dados.erro) {
                 document.getElementById('logradouro').value = dados.logradouro;
                 document.getElementById('bairro').value = dados.bairro;
                 document.getElementById('cidade').value = dados.localidade;
                 document.getElementById('estado').value = dados.uf;
-            
+
                 //salvar dados do cep,etc..
                 const endereco = {
                     cep: cepInformado,
@@ -28,6 +27,8 @@ document.getElementById('cep').addEventListener('blur', (evento) => {
                     estado: dados.uf
                 };
 
+                localStorage.setItem('enderecoSalvo', JSON.stringify(endereco));
+
             } else {
                 alert('cep nao encontrado');
             }
@@ -35,17 +36,18 @@ document.getElementById('cep').addEventListener('blur', (evento) => {
         .catch(erro => console.error('Ocorreu um erro', erro));
 });
 
+
 //Restaurar os dados
 window.addEventListener('load', () => {
     const enderecoSalvo = localStorage.getItem('enderecoSalvo');
 
-    if (enderecoSalvo){
+    if (enderecoSalvo) {
         const endereco = JSON.parse(enderecoSalvo);
 
-    document.getElementById('cep').value = dados.cep;
-    document.getElementById('logradouro').value = dados.logradouro;
-    document.getElementById('bairro').value = dados.bairro;
-    document.getElementById('cidade').value = dados.localidade;
-    document.getElementById('estado').value = dados.uf;
+        document.getElementById('cep').value = endereco.cep;
+        document.getElementById('logradouro').value = endereco.logradouro;
+        document.getElementById('bairro').value = endereco.bairro;
+        document.getElementById('cidade').value = endereco.cidade;
+        document.getElementById('estado').value = endereco.estado;
     }
 });

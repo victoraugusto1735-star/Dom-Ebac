@@ -3,36 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>cadastro de endereço</title>
+    <title>Cadastro de Endereço</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <main></main>
-        <h1>cadastro de endereço</h1>
-        <form>
-            <label for="rua">Cep</label>
-            <input type="text" name="Cep" id="Cep" required>
 
-            <label for="logradoura">Logradouro</label>
-            <input type="text" name="Logradouro" id="Logradouro" required>
+    <main>
+        <h1>Cadastro de Endereço</h1>
+
+        <form>
+            <label for="cep">CEP</label>
+            <input type="text" id="cep" required>
+
+            <label for="logradouro">Logradouro</label>
+            <input type="text" id="logradouro" required>
 
             <label for="bairro">Bairro</label>
-            <input type="text" name="Bairro" id="Bairro" required>
+            <input type="text" id="bairro" required>
 
             <label for="cidade">Cidade</label>
-            <input type="text" name="Cidade" id="Cidade" required>
+            <input type="text" id="cidade" required>
 
             <label for="estado">Estado</label>
-            <input type="text" name="Estado" id="Estado" required>
+            <input type="text" id="estado" required>
 
-            <label for="Numero">Numero</label>
-            <input type="text" name="Numero" id="Numero" required>
+            <label for="numero">Número</label>
+            <input type="text" id="numero" required>
 
-            <button type="cadastrar">cadastrar</button>
+            <button type="submit">Cadastrar</button>
         </form>
     </main>
-    
-    <script src="script.js"></script>
 
+    <script src="script.js"></script>
 </body>
 </html>
